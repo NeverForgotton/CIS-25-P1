@@ -6,6 +6,7 @@
 
 int main()
 {
+    std::srand(std::time(0));
     const int MAX_WORDS = 1000;
     std::string words[MAX_WORDS];
     int count = readWordsFromFile("test.txt", words, MAX_WORDS);
@@ -27,6 +28,10 @@ int main()
 
     for (int i = 0; i < 20 && i < chainSize; i++) {
         std::cout << "[" << prefixes[i] << "] -> [" << suffixes[i] << "]" << std::endl;
+    }
+
+    for (int i = 0; i < 10; i++) {
+        std::cout << getRandomSuffix(prefixes, suffixes, chainSize, "the") << std::endl;
     }
 
     return 0;
