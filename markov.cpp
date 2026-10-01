@@ -3,13 +3,23 @@
 #include <fstream>
 #include <cstdlib>
 
-// Step 1 placeholders. Add parameter names when implementing each function.
+// Remaining functions are placeholders. Add parameter names when implementing them.
 // The corresponding parameter names are listed in markov.h.
 
-std::string joinWords(const std::string[], int, int)
+std::string joinWords(const std::string words[], int startIndex, int count)
 {
-    // TODO: Step 2 - join the requested words with spaces.
-    return "";
+    std::string result;
+
+    for (int i = 0; i < count; i++)
+    {
+        result += words[startIndex + i];
+        if (i < count - 1)
+        {
+            result += " ";
+        }
+    }
+
+    return result;
 }
 
 int readWordsFromFile(std::string, std::string[], int)
