@@ -95,9 +95,15 @@ std::string getRandomSuffix(const std::string prefixes[], const std::string suff
     return "";
 }
 
-std::string getRandomPrefix(const std::string[], int)
+std::string getRandomPrefix(const std::string prefixes[], int chainSize)
 {
-    return "";
+    if (chainSize <= 0)
+    {
+        return "";
+    }
+
+    int index = std::rand() % chainSize;
+    return prefixes[index];
 }
 
 std::string generateText(const std::string[], const std::string[], int, int, int)
