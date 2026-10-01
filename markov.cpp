@@ -21,9 +21,22 @@ std::string joinWords(const std::string words[], int startIndex, int count)
     return result;
 }
 
-int readWordsFromFile(std::string, std::string[], int)
+int readWordsFromFile(std::string filename, std::string words[], int maxWords)
 {
-    return 0;
+    std::ifstream inputFile(filename);
+    if (!inputFile.is_open())
+    {
+        return -1;
+    }
+
+    int counter = 0;
+    while (counter < maxWords && inputFile >> words[counter])
+    {
+        counter++;
+    }
+
+    inputFile.close();
+    return counter;
 }
 
 int buildMarkovChain(const std::string[], int, int,

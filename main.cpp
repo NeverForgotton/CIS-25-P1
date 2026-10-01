@@ -6,10 +6,21 @@
 
 int main()
 {
-    std::string testWords[] = {"the", "cat", "sat", "down"};
+    const int MAX_WORDS = 1000;
+    std::string words[MAX_WORDS];
+    int count = readWordsFromFile("test.txt", words, MAX_WORDS);
 
+    if (count == -1)
+    {
+        std::cout << "Could not open test.txt.\n";
+        return 1;
+    }
 
-    std::cout << joinWords(testWords, 0, 2) << '\n';
-    std::cout << joinWords(testWords, 1, 3) << '\n';
+    std::cout << "Read " << count << " words\n";
+    for (int i = 0; i < 10 && i < count; i++)
+    {
+        std::cout << words[i] << '\n';
+    }
+
     return 0;
 }
